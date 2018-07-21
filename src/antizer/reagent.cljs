@@ -7,16 +7,16 @@
                                            export-reagent-components]]))
 
 (defn create-form
-   "Calls Form.create() decorator with the form to be created. form can be
+  "Calls Form.create() decorator with the form to be created. form can be
     any hiccup form. Accepts the following options:
 
     :options - map of Form.create() options. Refer to: 
                https://ant.design/components/form/#Form.create(options) for
                details"
-   [form & {:keys [options] :or {options {}}}]
-   (r/create-element
-     (((getValueByKeys js/antd "Form" "create") (clj->js (ant/map-keys->camel-case options)))
-      (r/reactify-component form))))
+  [form & {:keys [options] :or {options {}}}]
+  (r/create-element
+   (((getValueByKeys js/antd "Form" "create") (clj->js (ant/map-keys->camel-case options)))
+    (r/reactify-component form))))
 
 (defn get-form
   "Returns the `form` created by Form.create(). This function must be called
